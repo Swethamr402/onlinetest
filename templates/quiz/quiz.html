@@ -1,0 +1,68 @@
+{% extends 'core/base.html' %}
+{% block title %} Dashboard {% endblock %}
+
+{% block extra_head %}
+{% endblock %}
+
+{% block crumbs %}
+    {{ block.super }}
+    <li class="breadcrumb-item"><a href="#">{{ quiz.quiz_name }}</a></li>
+    <!-- <li class="breadcrumb-item active">{{ employee.get_full_name }}</li> -->
+{% endblock crumbs %}
+
+{% block content %}
+<div class="container-fluid">
+
+  <!-- Page Content -->
+  <h1>{{ quiz.quiz_name }}</h1>
+  <hr>
+  <p>{{ question.question_text }}</p>
+
+  <table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <form>
+      {% for response in responses %}
+        <tr>
+          <td>
+            <input type="radio" name="gender" value="female"> {{ response.response_text }} <br>
+          </td>
+        </tr>
+      {% endfor %}
+      <tr>
+        <td>
+          <input type="submit" name="next" value="Next"> {{ response.response_text }} <br>
+        </td>
+      </tr>
+    </form>
+  </tbody>
+</table>
+
+</div>
+{% endblock %}
+
+{% block extra_body %}
+<!-- Bootstrap core JavaScript-->
+<script src="{{ STATIC_URL }}vendor/jquery/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{{ STATIC_URL }}vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Page level plugin JavaScript-->
+<script src="{{ STATIC_URL }}vendor/chart.js/Chart.min.js"></script>
+<script src="{{ STATIC_URL }}vendor/datatables/jquery.dataTables.js"></script>
+<script src="{{ STATIC_URL }}vendor/datatables/dataTables.bootstrap4.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{{ STATIC_URL }}js/sb-admin.min.js"></script>
+
+<!-- Demo scripts for this page-->
+<script src="{{ STATIC_URL }}js/demo/datatables-demo.js"></script>
+<script src="{{ STATIC_URL }}js/demo/chart-area-demo.js"></script>
+
+{% endblock %}

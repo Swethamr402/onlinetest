@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+
+    <!-- {% load bootstrap4 %} -->
+    <!-- {% bootstrap_css %} -->
+    <!-- {% bootstrap_javascript jquery='full' %} -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- <title>Online Test Admin - Dashboard</title> -->
+    <title>Online Quiz Admin: {% block title %}{% endblock %}</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="{{ STATIC_URL }}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ STATIC_URL }}vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Page level plugin CSS-->
+    <link href="{{ STATIC_URL }}vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ STATIC_URL }}css/sb-admin.css" rel="stylesheet">
+
+    {% block extra_head %}
+    {% endblock extra_head %}
+
+  </head>
+
+  <body id="page-top">
+
+    {% block navigation %}
+        {% include "core/navigation.html" %}
+    {% endblock %}
+
+    <div id="wrapper">
+
+      {% block sidebar %}
+          {% include "core/sidebar_navigation.html" %}
+      {% endblock %}
+
+      <div id="content-wrapper">
+
+        <div class="container-fluid">
+
+          <!-- Breadcrumbs-->
+          <!-- <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Overview</li>
+          </ol> -->
+
+          {% if request.user.is_authenticated %}
+            {% block breadcrumb %}
+            <ol class="breadcrumb">
+              {% block crumbs %}
+              <li class="breadcrumb-item">
+                <a href="{% url 'core_dashboard' %}">Dashboard</a>
+              </li>
+              {% endblock crumbs %}
+            </ol>
+            {% endblock breadcrumb %}
+          {% endif %}
+
+          {% block content %}
+          {% endblock content %}
+
+        </div>
+
+        <!-- Sticky Footer -->
+        <footer class="sticky-footer">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Continental-Corporation</span>
+            </div>
+          </div>
+        </footer>
+
+      </div>
+
+    </div>
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    {% block extra_modal %}
+    {% endblock %}
+
+    {% block extra_body %}
+    {% endblock %}
+
+  </body>
+
+</html>

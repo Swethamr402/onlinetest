@@ -1,0 +1,137 @@
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/media/blackbar.png">
+  <tr>
+    <td width="90%" valign="top">
+<!--You can modify the text, color, size, number of loops and more on the flash header by editing the text file (fence.txt) included in the zip file.-->
+</td>
+    <td width="10%">
+     <img border="0" src="/media/continental-ag-png-continental.png" width="250" height="68" align="right"></td>
+  </tr>
+</table>
+
+{% extends 'login_base.html' %}
+{% block title %} Login {% endblock %}
+
+{% block extra_head %}
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}admin/css/login.css" />
+
+    <style>
+
+      body {
+    /* The image used */
+    background-image: url("/media/wood1.png");
+
+    /* Full height */
+    height: 120%;
+	width:100%
+    content: "";
+    /* Center and scale the image nicely */
+    background-position: center ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    moz-background-size: cover;
+    opacity: 0.5;
+    filter: alpha(opacity=20);
+    opacity: 0.8;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+    </style>
+
+{% endblock %}
+
+{% block body_class %} Login {% endblock %}
+
+{% block content %}
+
+    <!-- {% if form.non_field_errors %}
+
+        {% for message in form.non_field_errors %}
+
+            <div class="alert alert-danger" role="alert">
+                <a class="close" href="#" data-dismiss="alert">×</a>
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %} -->
+
+
+
+    <div class="login" >
+
+        <!-- Container -->
+        <div id="container">
+
+            <!-- Header -->
+            <div id="header">
+                <div id="branding">
+                    <h1 id="site-name"><a href="">
+                        Online Quiz - Login
+                    </a></h1>
+                </div>
+            </div>
+            <!-- END Header -->
+
+            <!-- Content -->
+            <div id="content" class="colM">
+
+              {% if form.non_field_errors %}
+
+                  {% for message in form.non_field_errors %}
+
+                      <p class="errornote">
+                          {{ message }}
+                      </p>
+
+                  {% endfor %}
+
+              {% endif %}
+
+                <div id="content-main">
+
+                    <form action="" method="post" id="login-form">
+
+                        {% csrf_token %}
+
+
+                        <div class="form-row">
+                            <label class="required" for="id_username">Employee ID:</label>
+                            <input type="text" name="username" autofocus required id="id_username" maxlength="254" />
+                        </div>
+
+                        <div class="form-row">
+                            <!--label class="required" for="id_password">Password:</label>
+                            <input type="password" name="password" required id="id_password" /-->
+								<input type="hidden" name="password" value="Abcd@123" required id="id_password" />
+								<input type="hidden" name="next" value="/quiz/startquiz/1" />
+              </div>
+
+                        <div class="submit-row">
+                            <label>&nbsp;</label><input type="submit" value="Log in" />
+                        </div>
+
+                        <div class="submit-row">
+                            <label>&nbsp;</label>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <br class="clear" />
+
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

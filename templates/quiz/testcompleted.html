@@ -1,0 +1,50 @@
+<!Doctype html>
+<html lang="en">
+
+  <title>Quiz Completed</title>
+
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% load bootstrap4 %}
+
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/sticky_footer.css" />
+    {% block extra_head %}
+    {% endblock extra_head %}
+  </head>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/media/blackbar.png">
+  <tr>
+    <td width="90%" valign="top">
+<!--You can modify the text, color, size, number of loops and more on the flash header by editing the text file (fence.txt) included in the zip file.-->
+</td>
+    <td width="10%">
+     <img border="0" src="/media/continental-ag-png-continental.png" width="250" height="68" align="right"></td>
+  </tr>
+</table>
+  </table>
+  <body class="{% block body_id %}{% endblock body_id %}">
+
+    <div class="container">
+      <div class="alert alert-info">
+         <span class="glyphicon glyphicon-ok"></span> <h3><strong><center><i>You have already completed the online quiz!</h3></i></center></strong>
+          <hr class="message-inner-separator">
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <span class="text-muted">Organised by VED->CVEI SBH</span>
+      </div>
+    </footer>
+  </body>
+
+</html>
+
+
+
+

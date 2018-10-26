@@ -1,0 +1,26 @@
+{% extends 'quiz/base.html' %}
+{% block title %} Continental - Quiz {% endblock %}
+
+{% block extra_head %}
+  <style>
+    .center {
+        line-height: 300px;
+        height: 300px;
+        border: 0px solid green;
+        text-align: center;
+    }
+
+    .center p {
+        line-height: 1.5;
+        display: inline-block;
+        vertical-align: middle;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="center">
+    <!-- <a class="btn btn-primary" href="{% url 'quiz_live' 3 %}">Start</a> -->
+    <a class="btn btn-primary" href="{% url 'start_quiz' 1 %}">Enter Quiz</a>
+  </div>
+{% endblock %}

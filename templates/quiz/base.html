@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+  <title>Core: {% block title %}{% endblock %}</title>
+
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% load bootstrap4 %}
+
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/sticky_footer.css" />
+    {% block extra_head %}
+    {% endblock extra_head %}
+  </head>
+
+  <body class="{% block body_id %}{% endblock body_id %}">
+
+    {% block navigation %}
+        {% include "quiz/navigation.html" %}
+    {% endblock %}
+
+    <div class="container">
+      {% block content %}
+      {% endblock content %}
+    </div>
+
+    {% block extra_body %}
+    {% endblock %}
+
+    <!--footer class="footer">
+      <div class="container-fluid">
+        <span class="text-muted">Organised by VED->CVEI SBH</span>
+      </div>
+    </footer->
+  </body>
+
+</html>

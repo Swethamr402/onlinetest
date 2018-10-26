@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+
+  <title>Welcome Team</title>
+
+  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  {% load bootstrap4 %}
+
+  {% bootstrap_css %}
+  {% bootstrap_javascript jquery='full' %}
+
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/sticky_footer.css" />
+    {% block extra_head %}
+    {% endblock extra_head %}
+  </head>
+
+  <body class="{% block body_id %}{% endblock body_id %}">
+
+    <div class="container">
+      <div class="alert alert-success">
+         <span class="glyphicon glyphicon-ok"></span> <strong>Welcome {{ user.first_name }} {{ user.last_name }}</strong>
+          <hr class="message-inner-separator">
+          <p>
+              You have successfully registered with our Quiz application.
+          </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container-fluid">
+        <span class="text-muted">Developed by Ramesh Annadurai</span>
+      </div>
+    </footer>
+  </body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <title>Employee - Register</title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="{{ STATIC_URL }}vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template-->
+    <link href="{{ STATIC_URL }}vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template-->
+    <link href="{{ STATIC_URL }}css/sb-admin.css" rel="stylesheet"/>
+
+  </head>
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/media/blackbar.png">
+  <tr>
+    <td width="90%" valign="top">
+<!--You can modify the text, color, size, number of loops and more on the flash header by editing the text file (fence.txt) included in the zip file.-->
+</td>
+    <td width="10%">
+     <img border="0" src="/media/continental-ag-png-continental.png" width="250" height="68" align="right"></td>
+  </tr>
+</table>
+
+  <body class = "bg-dark">
+
+<div class="container">
+
+  <div class="card">
+    <img class="card-img-top" src="/media/artbrain.png" alt="Card image" style="width:100% color:blue;">
+    <div class="card-body">
+      <h3 class="card-title"><b><i><center>NO BRAKES FOR BRAIN</b></center></i></h3>
+      <!--p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+      <a href="#" class="btn btn-primary">See Profile</a>
+    </div>
+  </div>
+
+    <div class="container">
+      <div class="card card-register mx-auto mt-5"-->
+        <div class="card-header">Online Quiz Registration</div>
+        <div class="card-body">
+          <form name ="form1"  method="post">
+            {% csrf_token %}
+            {% if form.errors %}
+              <div class="alert alert-danger" role="alert">
+                {% for key,value in form.errors.items %}
+                  {{ key }} - {{ value|escape }}
+                {% endfor %}
+              </div>
+              {% endif %}
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" name="username" id="id_username" class="form-control" placeholder="Employee ID" required="required" autofocus="autofocus">
+                <label for="id_username">Employee ID</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text"  name="mobile" id="id_mobile" class="form-control" pattern="/^\(?([0-9]))" placeholder="Mobile No" required="required">
+                <label for="id_mobile" >Mobile Number</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" name="email" id="id_email" class="form-control" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" value="@continental-corporation.com" placeholder="Email Id" required="required">
+                <label for="id_email">Email Id</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" name="business_unit" id="id_business_unit" class="form-control" placeholder="business unit" required="required">
+                <label for="id_business_unit">Business unit</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-label-group">
+                <input type="text" name="team" id="id_team" class="form-control" placeholder="Team" required="required">
+                <label for="id_team">Team</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="first_name" id="id_first_name" class="form-control" placeholder="First name" required="required">
+                    <label for="id_first_name">First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="last_name" id="id_last_name" class="form-control" placeholder="Last name" required="required">
+                    <label for="id_last_name">Last name</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="first_name" id="id_first_name" class="form-control" placeholder="First name" required="required">
+                    <label for="id_first_name">First name</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="text" name="last_name" id="id_last_name" class="form-control" placeholder="Last name" required="required">
+                    <label for="id_last_name">Last name</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="form-label-group">
+                      <input type="password" name="password1" id="id_password1" class="form-control"   pattern="(?=.*\d)(?=.*[a-z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required placeholder="Password" required="required">
+                    <label for="id_password1">Password</label>
+
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-label-group">
+
+                      <input type="password" name="password2" id="id_password2" class="form-control"  pattern="(?=.*\d)(?=.*[a-z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required  placeholder="Confirm password" required="required">
+                      <label for="id_password2">Confirm password</label>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <input type="submit" value="Register"  class="btn btn-primary btn-block" />
+          </form>
+          </div>
+		        <i><center>Organised by <a href="http://eportx.conti.de/vedwiki/index.php/CVEI_SBH">CVEI SBH </a></center></i>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+
+  </body>
+  <script src="{{ STATIC_URL }}vendor/jquery/jquery.min.js"></script>
+  <script src="{{ STATIC_URL }}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="{{ STATIC_URL }}vendor/jquery-easing/jquery.easing.min.js"></script>
+
+</html>

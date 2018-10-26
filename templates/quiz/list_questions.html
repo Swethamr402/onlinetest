@@ -1,0 +1,92 @@
+{% extends 'core/base.html' %}
+{% block title %} Dashboard {% endblock %}
+
+{% block extra_head %}
+{% endblock %}
+
+<!-- {% block body_class %} Home {% endblock %} -->
+
+{% block crumbs %}
+    {{ block.super }}
+    <li class="breadcrumb-item active">Questions</li>
+{% endblock crumbs %}
+
+{% block content %}
+<!-- DataTables Example -->
+<div class="card mb-3">
+  <div class="card-header">
+    <i class="fas fa-table"></i>
+    Questions
+  </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+          <thead>
+            <tr>
+              <th>Question Text</th>
+              <th>Question Type</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <!-- <tfoot>
+            <tr>
+              <th>Employee ID</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Designation</th>
+              <th>Status</th>
+            </tr>
+          </tfoot> -->
+          <tbody>
+
+            {% for question in questions %}
+              <tr>
+                <td><a href="#">{{ question.question_text }}</a></td>
+                <td>
+                  {% if question.question_type == 'MULTI_CHOICE' %}
+                  Multi select question
+                  {% endif %}
+                </td>
+                <td>
+                  {% if question.is_active %}
+                  <span class="badge badge-success">Active</span>
+                  {% else %}
+                  <span class="badge badge-danger">Inactive</span>
+                  {% endif %}
+                </td>
+                <td>
+
+                </td>
+              </tr>
+            {% endfor %}
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+</div>
+{% endblock %}
+
+{% block extra_body %}
+<!-- Bootstrap core JavaScript-->
+<script src="{{ STATIC_URL }}vendor/jquery/jquery.min.js"></script>
+<script src="{{ STATIC_URL }}vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="{{ STATIC_URL }}vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Page level plugin JavaScript-->
+<script src="{{ STATIC_URL }}vendor/chart.js/Chart.min.js"></script>
+<script src="{{ STATIC_URL }}vendor/datatables/jquery.dataTables.js"></script>
+<script src="{{ STATIC_URL }}vendor/datatables/dataTables.bootstrap4.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="{{ STATIC_URL }}js/sb-admin.min.js"></script>
+
+<!-- Demo scripts for this page-->
+<script src="{{ STATIC_URL }}js/demo/datatables-demo.js"></script>
+<script src="{{ STATIC_URL }}js/demo/chart-area-demo.js"></script>
+
+{% endblock %}

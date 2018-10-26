@@ -1,0 +1,68 @@
+<table border="0" width="100%" cellspacing="0" cellpadding="0" background="/media/blackbar.png">
+  <tr>
+    <td width="90%" valign="top">
+<!--You can modify the text, color, size, number of loops and more on the flash header by editing the text file (fence.txt) included in the zip file.-->
+</td>
+    <td width="10%">
+     <img border="0" src="/media/continental-ag-png-continental.png" width="250" height="68" align="right"></td>
+  </tr>
+</table>
+  </table>
+
+{% extends 'quiz/base.html' %}
+{% block title %} {{ quiz.quiz_name }} {% endblock %}
+
+{% block extra_head %}
+  <style>
+    .center {
+        line-height: 300px;
+        height: 300px;
+        border: 0px solid green;
+        text-align: center;
+    }
+
+    .center p {
+        line-height: 1.5;
+        display: inline-block;
+        vertical-align: middle;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+
+  <!--div class="center">
+    {{ quiz.description|linebreaks }}
+    <hr/>
+	  </div-->
+<div class="container">
+  <img src="/media/refer_to_instructions.png" class="rounded-circle" alt="Cinque Terre" width="304" height="236">
+</div>
+
+	<div class="align-content-stretch">
+	<p><b><center>Quiz Instructions</center></b><br>
+This quiz consists of 45 questions carefully designed to help you self-assess your comprehension of the information presented on the topics covered in the module.<br><br>
+Below are the topics included:<br>
+•	C Language<br>
+•	Microcontrollers<br>
+•	Basic Electronics<br>
+•	Basic Automotive<br><br>
+<b>Time Duration: 40 mins</b><br><br>
+•	Each question in this quiz is of multiple-choice format. Read each question carefully, and click on the button "Next"<br>
+•	Once you are done with all the questions click on "Finish" to submit the quiz<br>
+•	You cannot retake the quiz, Single attempt is allowed<br><br>
+<b>How do I score this quiz?</b><br>
+•	1 point for selecting the correct answer for each question<br>
+•	Based on top score and quiz duration toppers will be selected.<br><br>
+<b>Top scorers will be announced shortly!</b>
+</p>
+</div>
+
+<div class="center">
+    <a class="btn btn-primary" href="{% url 'quiz_live' 1 %}">Start Quiz</a>
+</div>
+
+   
+  </body>
+
+{% endblock %}

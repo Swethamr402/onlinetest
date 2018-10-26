@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+
+  <title>Core: {% block title %}{% endblock %}</title>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- {% load bootstrap4 %} -->
+
+  <!-- {% bootstrap_css %} -->
+  <!-- {% bootstrap_javascript jquery='full' %} -->
+
+  <head>
+    {% block extra_head %}
+    {% endblock extra_head %}
+  </head>
+
+  <body class="{% block body_id %}{% endblock body_id %}">
+
+    <!-- <div class="container-fluid"> -->
+      {% block content %}
+      {% endblock content %}
+    <!-- </div> -->
+
+  </body>
+
+</html>
